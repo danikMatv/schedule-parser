@@ -3,6 +3,9 @@ import re
 import openpyxl
 from rich.console import Console
 from ics import Calendar, Event
+from pathlib import Path
+import requests
+from io import BytesIO
 
 console = Console()
 
@@ -195,27 +198,66 @@ def create_ics_file(schedule, output_file="schedule.ics"):
 
 
 if __name__ == "__main__":
-    wb = openpyxl.load_workbook("schedules/Розклад_2022_2023_І_семестр_Інф_ІІ_курс1.xlsx")
+    schedule_urls = {
+        "Розклад_2022_2023_І_семестр_Інф_ІІ_курс1.xlsx": "https://ami.lnu.edu.ua/wp-content/uploads/2022/09/Розклад_2022_2023_І_семестр_Інф_ІІ_курс1.xlsx",
+    }
+    
+    schedules_dir = Path(__file__).resolve().parent.parent / "schedules"
+    schedules_dir.mkdir(parents=True, exist_ok=True)
+
+    xlsx_name = "Розклад_2022_2023_І_семестр_Інф_ІІ_курс1.xlsx"
+    local_path = schedules_dir / xlsx_name
+
+    if local_path.exists():
+        print(f"Loading local file: {local_path}")
+        wb = openpyxl.load_workbook(local_path, data_only=True)
+    else:
+        if xlsx_name in schedule_urls:
+            url = schedule_urls[xlsx_name]
+            print(f"Downloading from: {url}")
+            try:
+                resp = requests.get(url, timeout=30)
+                resp.raise_for_status()
+                
+                with open(local_path, 'wb') as f:
+                    f.write(resp.content)
+                print(f"Downloaded and saved to: {local_path}")
+
+                wb = openpyxl.load_workbook(BytesIO(resp.content), data_only=True)
+            except requests.exceptions.RequestException as e:
+                print(f"Failed to download from {url}: {e}")
+                print("Please provide a valid URL or download the file manually.")
+                exit(1)
+            except Exception as e:
+                print(f"Failed to load Excel file: {e}")
+                exit(1)
+        else:
+            print(f"No URL configured for {xlsx_name}")
+            print("Available URLs:")
+            for name, url in schedule_urls.items():
+                print(f"  {name}: {url}")
+            exit(1)
+
     sheet = wb.active
 
     group_names = extract_groups(sheet)
     print("Group names:", group_names)
-    #
-    # days = extract_days(sheet)
-    # print("Days:", days)
-    #
-    # class_times = extract_class_times(sheet)
-    # print("Class times:", class_times)
-    #
-    # day = "Четвер"
-    # class_times = extract_class_times_by_day(sheet, day)
-    # print(f"Class times for {day}: {class_times}")
-    #
-    # group = "ПМА – 21с"
-    # classes = extract_classes_by_group(sheet, group)
-    # print(f"Classes for {group}:")
-    # for study_class in classes:
-    #     print(study_class)
+
+    days = extract_days(sheet)
+    print("Days:", days)
+
+    class_times = extract_class_times(sheet)
+    print("Class times:", class_times)
+
+    day = "Четвер"
+    class_times = extract_class_times_by_day(sheet, day)
+    print(f"Class times for {day}: {class_times}")
+
+    group = "ПМА – 21с"
+    classes = extract_classes_by_group(sheet, group)
+    print(f"Classes for {group}:")
+    for study_class in classes:
+        print(study_class)
 
     group_name = "ПМА – 21с"
     schedule = extract_classes_by_group(sheet, group_name)

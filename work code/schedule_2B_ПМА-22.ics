@@ -1,0 +1,571 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: numerator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251127T113000Z
+DTSTART:20251127T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:d753b0c2-6a50-459b-ba49-9ad9e86cb944@d753.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: numerator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251211T113000Z
+DTSTART:20251211T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:5683eec1-35a7-42a8-8543-547a695f9420@5683.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: numerator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251208T162500Z
+DTSTART:20251208T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:e99dbce1-311a-4bcf-b4df-91c818f687c4@e99d.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: numerator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251015T145000Z
+DTSTART:20251015T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:22eae3f6-8f6c-42ab-9de1-79598b22c39f@22ea.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: denominator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20250910T145000Z
+DTSTART:20250910T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:f075c3c8-0418-497a-a531-a1b79da14341@f075.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: numerator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251030T113000Z
+DTSTART:20251030T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:3a222cb0-a0e7-46ca-9c57-3a4cc0634625@3a22.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: denominator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251120T113000Z
+DTSTART:20251120T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:b0e9c0d7-3eab-41aa-a74e-fdd38ba9cb9d@b0e9.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: numerator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20250901T162500Z
+DTSTART:20250901T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:f7dfa4b7-750a-4928-bc2a-f81b47264f24@f7df.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: denominator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251204T113000Z
+DTSTART:20251204T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:02ef3b74-7e26-4b34-b803-a5536464038f@02ef.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: denominator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251229T162500Z
+DTSTART:20251229T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:5f4e6782-b0f7-4872-af6c-0ffcb45d47d3@5f4e.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: numerator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251013T162500Z
+DTSTART:20251013T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:dbe2be16-3d3e-4041-b636-583ce65bebb7@dbe2.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: denominator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251106T113000Z
+DTSTART:20251106T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:bcfb8ceb-fbe3-4071-91dd-845921543708@bcfb.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ\nWeek type: denominator\nOriginal: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+DTEND:20251119T113000Z
+DTSTART:20251119T101000Z
+SUMMARY:ПМА-22: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+UID:6bd32d55-59be-4382-8df9-655c5ff71b28@6bd3.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: numerator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251016T113000Z
+DTSTART:20251016T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:0fffc9f4-d159-4722-ba46-431b0245523c@0fff.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: denominator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251201T162500Z
+DTSTART:20251201T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:a91f0b0d-4a2d-4aa8-861a-b2e5b3845dc7@a91f.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: denominator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251008T145000Z
+DTSTART:20251008T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:4261c289-be07-4d41-add7-a8cb93a0c8b4@4261.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: numerator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251112T145000Z
+DTSTART:20251112T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:99063ecf-0e42-47d0-b52f-cb69e1038147@9906.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: numerator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251001T145000Z
+DTSTART:20251001T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:0ad73811-fc87-4e94-a5e2-27c400e915e9@0ad7.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: denominator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251106T113000Z
+DTSTART:20251106T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:c5abf75a-7e90-463c-9b8a-2d6553cdad1a@c5ab.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: denominator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20250924T145000Z
+DTSTART:20250924T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:1b2d7fb8-d57f-425e-a6ee-547236d28d54@1b2d.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ\nWeek type: denominator\nOriginal: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+DTEND:20251203T113000Z
+DTSTART:20251203T101000Z
+SUMMARY:ПМА-22: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+UID:5d5f2638-d8e8-4109-ba53-adb02ff2b365@5d5f.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: numerator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20250929T162500Z
+DTSTART:20250929T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:085f2e4a-e82c-47c4-9e7f-badd410632fe@085f.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: numerator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251127T113000Z
+DTSTART:20251127T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:4c34551c-3b02-4f36-9460-330aa5d3a8c4@4c34.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: denominator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20260101T113000Z
+DTSTART:20260101T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:6b66cc1e-9a0e-404b-8754-9902d88340e0@6b66.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ\nWeek type: denominator\nOriginal: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+DTEND:20250924T113000Z
+DTSTART:20250924T101000Z
+SUMMARY:ПМА-22: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+UID:22065922-20db-473d-9e72-bfe1b2eaa9fe@2206.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: denominator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251119T145000Z
+DTSTART:20251119T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:f62f2760-110d-4225-8060-4aa66d4009fd@f62f.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: numerator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251225T113000Z
+DTSTART:20251225T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:1986c0c5-fb57-40e8-80b4-3b45bfbfd81d@1986.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: denominator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20250911T113000Z
+DTSTART:20250911T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:ac9c8f5a-cb43-425c-8e78-a7f91cb4c0ab@ac9c.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: numerator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251126T145000Z
+DTSTART:20251126T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:62ba6b6b-a4e3-4297-98eb-a5baa211c18b@62ba.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: numerator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251211T113000Z
+DTSTART:20251211T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:4d0c0322-7d26-467d-9fb7-0aa8ea09f627@4d0c.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: numerator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20250904T113000Z
+DTSTART:20250904T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:529c4e49-4ad7-426b-b1d8-751af188e9fe@529c.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: denominator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20250922T162500Z
+DTSTART:20250922T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:3c5e81ef-1907-4bed-9e1c-48bedd848150@3c5e.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: denominator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251120T113000Z
+DTSTART:20251120T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:75f3d1aa-60aa-457c-86e0-672093ac1d67@75f3.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: denominator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251217T145000Z
+DTSTART:20251217T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:070c3e21-4931-4bac-8a62-f46189152d4c@070c.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: denominator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251215T162500Z
+DTSTART:20251215T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:d309e1a5-5c75-422f-bf47-b2cb6c8a16c2@d309.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: numerator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20250918T113000Z
+DTSTART:20250918T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:c40f0898-93bc-4189-a69b-f950e5804dc7@c40f.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: numerator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251002T113000Z
+DTSTART:20251002T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:947911d5-5acc-40bf-9ec7-6fe5d3895461@9479.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: numerator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251113T113000Z
+DTSTART:20251113T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:1e82ae32-ec05-4335-9953-e9217e1a1a36@1e82.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: denominator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251218T113000Z
+DTSTART:20251218T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:79b9e10b-11cc-41c9-9581-bc87893ec000@79b9.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: denominator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251105T145000Z
+DTSTART:20251105T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:7bdda6ba-11b7-4d15-bc9a-c0384d517e34@7bdd.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ\nWeek type: denominator\nOriginal: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+DTEND:20251022T113000Z
+DTSTART:20251022T101000Z
+SUMMARY:ПМА-22: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+UID:ab96585e-e465-4371-92d8-083a20edc08e@ab96.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: numerator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251124T162500Z
+DTSTART:20251124T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:14936ede-274a-42dc-9ea5-e0cfa68a983e@1493.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: denominator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251204T113000Z
+DTSTART:20251204T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:2271272a-135a-4466-91ba-6e41a509e862@2271.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: numerator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251002T113000Z
+DTSTART:20251002T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:25a163a7-19bc-47b6-be96-5a21dcc38653@25a1.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: denominator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251009T113000Z
+DTSTART:20251009T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:aece4a38-547f-48b9-bce1-63a6d7b31a04@aece.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: numerator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20250918T113000Z
+DTSTART:20250918T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:549e7a02-6627-499b-8c20-16a1f457cbd7@549e.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: denominator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251023T113000Z
+DTSTART:20251023T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:f75945d4-e312-4f46-a552-4b1cf5e1f8f9@f759.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: numerator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20250917T145000Z
+DTSTART:20250917T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:abeb66b5-4f50-44ad-bb53-446a6c2e8ef2@abeb.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: denominator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251009T113000Z
+DTSTART:20251009T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:cc2597ea-1cd8-4026-8b94-742f59e2abaf@cc25.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: denominator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251023T113000Z
+DTSTART:20251023T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:66d643a4-06ba-4200-99fe-7e38a0b221fd@66d6.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: denominator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251022T145000Z
+DTSTART:20251022T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:322ec8d1-b27a-47ca-bb25-5b83d5423712@322e.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: denominator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251117T162500Z
+DTSTART:20251117T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:f0079dda-d2e0-4232-9931-646cc5d3a8c5@f007.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ\nWeek type: denominator\nOriginal: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+DTEND:20251231T113000Z
+DTSTART:20251231T101000Z
+SUMMARY:ПМА-22: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+UID:73cb3200-f66a-4bcc-a53d-c9f1b93c1f57@73cb.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ\nWeek type: denominator\nOriginal: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+DTEND:20251105T113000Z
+DTSTART:20251105T101000Z
+SUMMARY:ПМА-22: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+UID:3ea8defa-cde7-4de1-a1b5-72e48e472655@3ea8.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: numerator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251222T162500Z
+DTSTART:20251222T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:9cbb154d-94c9-4d41-be40-07d165648405@9cbb.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ\nWeek type: denominator\nOriginal: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+DTEND:20251217T113000Z
+DTSTART:20251217T101000Z
+SUMMARY:ПМА-22: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+UID:0c962f80-a92c-4dd5-a2fe-fd2ca6442447@0c96.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: numerator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251210T145000Z
+DTSTART:20251210T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:f4a608f9-d363-4b3f-adde-a4e96d21b448@f4a6.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ\nWeek type: denominator\nOriginal: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+DTEND:20251008T113000Z
+DTSTART:20251008T101000Z
+SUMMARY:ПМА-22: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+UID:3131a035-6f1c-4c76-836e-a2ac27c1e654@3131.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: numerator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251016T113000Z
+DTSTART:20251016T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:4c04e32d-da2f-4a1d-9436-1862cde7c6c5@4c04.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ\nWeek type: denominator\nOriginal: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+DTEND:20250910T113000Z
+DTSTART:20250910T101000Z
+SUMMARY:ПМА-22: АВТОМАТИЗАЦІЯ БІЗНЕС ПРОЦЕСІВ практ
+UID:fdeab2e4-0162-474b-98ea-2845a2fea540@fdea.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: denominator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251231T145000Z
+DTSTART:20251231T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:7fec53fc-25bc-4234-b203-17ade321f77a@7fec.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: denominator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20250911T113000Z
+DTSTART:20250911T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:591a489a-f91a-4569-baf7-339864b17096@591a.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: numerator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20250904T113000Z
+DTSTART:20250904T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:15f52250-1541-41a9-96a4-f5b89820065c@15f5.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: denominator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251020T162500Z
+DTSTART:20251020T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:5d9c8ab2-9fd6-4d80-8288-9f2eff6dd5e3@5d9c.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: numerator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251110T162500Z
+DTSTART:20251110T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:43a09a33-278e-4606-a164-e696c2266e8a@43a0.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: numerator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251029T145000Z
+DTSTART:20251029T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:5a5584ec-0263-4e04-9853-5882cdfaf4b2@5a55.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: denominator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251006T162500Z
+DTSTART:20251006T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:8587c84c-c267-4f8f-a45b-b3d6ec544818@8587.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: numerator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251027T162500Z
+DTSTART:20251027T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:fdd59e99-888d-423d-a6d3-2262774dbe99@fdd5.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: numerator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20250915T162500Z
+DTSTART:20250915T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:05c011ad-99c6-4090-af71-a053127e4346@05c0.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: numerator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20250903T145000Z
+DTSTART:20250903T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:7919271a-0f70-448d-8e67-cc87a5accac2@7919.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: denominator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20251103T162500Z
+DTSTART:20251103T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:bbc079a3-e1ad-4d8f-ac90-6c868a096ce6@bbc0.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: denominator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251203T145000Z
+DTSTART:20251203T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:43626fe3-c835-4df4-8a3f-cc655a22b9bb@4362.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: АРХІТЕКТУРА КОМП\nWeek type: denominator\nOriginal: АРХІТЕКТУРА КОМП
+DTEND:20250908T162500Z
+DTSTART:20250908T150500Z
+SUMMARY:ПМА-22: АРХІТЕКТУРА КОМП
+UID:36c84654-39f1-4696-9c60-0587995214a9@36c8.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: denominator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20260101T113000Z
+DTSTART:20260101T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:cdc88e4d-de9c-4b02-81b0-3c533a01a0ac@cdc8.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: denominator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251218T113000Z
+DTSTART:20251218T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:d1e53be7-c49c-4629-a10b-cf018ad3a4f3@d1e5.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: numerator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251113T113000Z
+DTSTART:20251113T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:69fe0b6b-43d8-4a93-8ddb-19244b50d911@69fe.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція\nWeek type: numerator\nOriginal: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+DTEND:20251224T145000Z
+DTSTART:20251224T133000Z
+SUMMARY:ПМА-22: ОСНОВИ МАТЕМАТИЧНОЇ ЛОГІКИ лекція
+UID:3ab124e2-af3d-47e0-9e42-2936b91ea51a@3ab1.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: numerator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20251225T113000Z
+DTSTART:20251225T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:d2d9abc6-b424-47bd-a7b8-67fd80b631ad@d2d9.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: denominator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20250925T113000Z
+DTSTART:20250925T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:aae9fb2c-b85f-41c7-8fc9-c0ce099d01a8@aae9.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб\nWeek type: numerator\nOriginal: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+DTEND:20251030T113000Z
+DTSTART:20251030T101000Z
+SUMMARY:ПМА-22: ДИФЕРЕНЦІАЛЬНІ РІВНЯННЯ лаб
+UID:6bdbc5ba-3ae4-42a8-8240-c1eaa1be54e0@6bdb.org
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Group: ПМА-22\nSubject: ПРОГРАМУВАННЯ\nWeek type: denominator\nOriginal: ПРОГРАМУВАННЯ
+DTEND:20250925T113000Z
+DTSTART:20250925T101000Z
+SUMMARY:ПМА-22: ПРОГРАМУВАННЯ
+UID:e86c79ce-7717-46fb-9b62-948f00b72160@e86c.org
+END:VEVENT
+END:VCALENDAR
