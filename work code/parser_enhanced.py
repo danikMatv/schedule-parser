@@ -3,24 +3,49 @@
 import requests
 import pdfplumber
 from pathlib import Path
-from io import BytesIO
 from ics import Calendar, Event
 from datetime import datetime, timedelta
 import re
 from typing import List, Tuple, Dict, Optional
+import json
 
 
 COURSE_SCHEDULES = {
-    "1A": "https://ami.lnu.edu.ua/wp-content/uploads/2025/08/1A2025-1.pdf",
-    "1B": "https://ami.lnu.edu.ua/wp-content/uploads/2025/08/1B2025-1.pdf", 
-    "2A": "https://ami.lnu.edu.ua/wp-content/uploads/2025/08/2A2025-1.pdf",
-    "2B": "https://ami.lnu.edu.ua/wp-content/uploads/2025/08/2B2025-1.pdf",
-    "3A": "https://ami.lnu.edu.ua/wp-content/uploads/2025/08/3A2025-1.pdf",
-    "3B": "https://ami.lnu.edu.ua/wp-content/uploads/2025/08/3B2025-1.pdf",
-    "4A": "https://ami.lnu.edu.ua/wp-content/uploads/2025/08/4A2025-1.pdf",
-    "4B": "https://ami.lnu.edu.ua/wp-content/uploads/2025/08/4B2025-1.pdf",
-    "5AB": "https://ami.lnu.edu.ua/wp-content/uploads/2025/08/5AB2025-1.pdf",
-    "6AB": "https://ami.lnu.edu.ua/wp-content/uploads/2025/08/6AB2025-1.pdf"
+    "1A": "https://ami.lnu.edu.ua/wp-content/uploads/2025/09/1B2025-1s.pdf",
+    "1B": "https://ami.lnu.edu.ua/wp-content/uploads/2025/09/1A2025-1s.pdf", 
+    "2A": "https://ami.lnu.edu.ua/wp-content/uploads/2025/09/2A2025-1s.pdf",
+    "2B": "https://ami.lnu.edu.ua/wp-content/uploads/2025/09/2B2025-1s.pdf",
+    "3A": "https://ami.lnu.edu.ua/wp-content/uploads/2025/09/3A2025-1s.pdf",
+    "3B": "https://ami.lnu.edu.ua/wp-content/uploads/2025/09/3B2025-1s.pdf",
+    "4A": "https://ami.lnu.edu.ua/wp-content/uploads/2025/09/4A2025-1s.pdf",
+    "4B": "https://ami.lnu.edu.ua/wp-content/uploads/2025/09/4B2025-1s.pdf",
+    "5AB": "https://ami.lnu.edu.ua/wp-content/uploads/2025/09/5AB2025-1s.pdf",
+    "6AB": "https://ami.lnu.edu.ua/wp-content/uploads/2025/09/6AB2025-1s.pdf"
+}
+
+TIME_SLOTS = {
+    "I": ("08:30", "09:50"),
+    "II": ("10:10", "11:30"),
+    "III": ("11:50", "13:10"),
+    "IV": ("13:30", "14:50"),
+    "V": ("15:05", "16:25"),
+    "VI": ("16:40", "18:00"),
+    "VII": ("18:10", "19:30"),
+    "VIII": ("19:40", "21:00"),
+    "І": ("08:30", "09:50"),
+    "ІІ": ("10:10", "11:30"),
+    "ІІІ": ("11:50", "13:10"),
+    "ІV": ("13:30", "14:50"),
+}
+
+DAYS_UA = {
+    "понеділок": "Monday",
+    "вівторок": "Tuesday", 
+    "середа": "Wednesday",
+    "четвер": "Thursday",
+    "п'ятниця": "Friday",
+    "пʼятниця": "Friday",
+    "субота": "Saturday"
 }
 
 
@@ -70,284 +95,212 @@ def is_numerator_week(date: datetime, semester_start: datetime, semester: int) -
         return week_number % 2 == 1
 
 
-def extract_week_info(subject_text: str) -> Tuple[str, str]:
-    original_text = subject_text
-    subject_text = subject_text.lower()
+def extract_week_info(text: str) -> Tuple[str, str]:
+    if not text:
+        return 'all', text
+        
+    original_text = text
+    text_lower = text.lower()
     
-    if 'числ' in subject_text or 'чис' in subject_text:
-        cleaned = re.sub(r'[\(\[]?числ[^\)\]]*[\)\]]?', '', original_text, flags=re.IGNORECASE)
+    # Add more Ukrainian patterns
+    numerator_patterns = ['числ', 'чис', '(ч)', 'numerator', 'непарн', 'нп']
+    denominator_patterns = ['знам', 'зн', '(з)', 'denominator', 'парн', 'пр']
+    
+    # Look for patterns at word boundaries
+    if re.search(r'\b(числ|чис|непарн|нп)\b', text_lower):
+        cleaned = re.sub(r'[\(\[]?(числ|чис|непарн|нп)[^\)\]]*[\)\]]?', '', original_text, flags=re.IGNORECASE)
         return 'numerator', cleaned.strip()
-    elif 'знам' in subject_text or 'зн' in subject_text:
-        cleaned = re.sub(r'[\(\[]?знам[^\)\]]*[\)\]]?', '', original_text, flags=re.IGNORECASE)
-        return 'denominator', cleaned.strip()
-    else:
-        return 'all', original_text
-
-
-def download_pdf(url, local_path):
-    try:
-        print(f"Downloading from: {url}")
-        response = requests.get(url, timeout=30)
-        response.raise_for_status()
-        
-        with open(local_path, 'wb') as f:
-            f.write(response.content)
-        print(f"Downloaded and saved to: {local_path}")
-        return True
-    except requests.exceptions.RequestException as e:
-        print(f"Failed to download from {url}: {e}")
-        return False
-
-
-def extract_text_from_pdf(pdf_path):
-    text_content = []
-    schedule_data = []
     
-    try:
-        with pdfplumber.open(pdf_path) as pdf:
-            for page_num, page in enumerate(pdf.pages, 1):
-                print(f"Processing page {page_num}")
-                
-                tables = page.extract_tables()
-                if tables:
-                    print(f"Found {len(tables)} tables on page {page_num}")
-                    for table_num, table in enumerate(tables):
-                        print(f"Processing table {table_num + 1}")
-                        schedule_data.extend(parse_table_directly(table))
-                
-                text = page.extract_text()
-                if text:
-                    text_content.append(text)
-        
-        return "\n".join(text_content), schedule_data
-        
-    except Exception as e:
-        print(f"Error extracting from PDF: {e}")
-        return "", []
+    if re.search(r'\b(знам|зн|парн|пр)\b', text_lower):
+        cleaned = re.sub(r'[\(\[]?(знам|зн|парн|пр)[^\)\]]*[\)\]]?', '', original_text, flags=re.IGNORECASE)
+        return 'denominator', cleaned.strip()
+    
+    return 'all', original_text
 
 
-def parse_table_directly(table):
+def parse_improved_table(table, debug=False):
     schedule = []
     
     if not table or len(table) < 2:
+        if debug:
+            print("Table is too small or empty")
         return schedule
     
-    print("Table structure:")
-    for i, row in enumerate(table[:5]):
-        print(f"Row {i}: {row}")
+    if debug:
+        print(f"Table has {len(table)} rows")
+        for i, row in enumerate(table[:3]):  # Print first 3 rows
+            print(f"Row {i}: {row}")
+
+    header_row_idx = None
+    groups = []
+    group_columns = {}
     
-    header_row = None
-    for i, row in enumerate(table):
-        if row and any(cell and ('ПМА' in str(cell) or 'ПМП' in str(cell) or 'ІН' in str(cell)) for cell in row if cell):
-            header_row = i
-            print(f"Found header row at index {i}: {row}")
+    for i, row in enumerate(table[:10]):
+        if row and any(cell and ('ПМ' in str(cell) or 'ІН' in str(cell)) for cell in row if cell):
+            header_row_idx = i
+            for j, cell in enumerate(row):
+                if cell and ('ПМ' in str(cell) or 'ІН' in str(cell)):
+                    group_name = str(cell).strip()
+                    groups.append(group_name)
+                    group_columns[group_name] = j
             break
     
-    if header_row is None:
-        print("No header row found")
+    if not groups:
+        print("No groups found in table")
         return schedule
     
-    groups = []
-    group_columns = []
-    for col_idx, cell in enumerate(table[header_row]):
-        if cell and ('ПМА' in str(cell) or 'ПМП' in str(cell) or 'ІН' in str(cell)):
-            groups.append(cell.strip())
-            group_columns.append(col_idx)
+    if debug:
+        print(f"Found groups: {groups}")
+        print(f"Group columns: {group_columns}")
     
-    print(f"Found groups: {groups}")
-    print(f"Group columns: {group_columns}")
+    current_day = None
+    current_time_slot = None
     
-    current_day = "Monday"
-    days_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-    current_day_index = 0
-    rows_without_time = 0
-    
-    for row_idx in range(header_row + 1, len(table)):
+    for row_idx in range(header_row_idx + 1 if header_row_idx else 1, len(table)):
         row = table[row_idx]
         if not row:
             continue
-            
-        if row[0] and len(str(row[0])) > 5:
+        
+        # Improved day detection
+        if row[0]:
             day_text = str(row[0]).lower().replace('\n', '').replace(' ', '')
+            if debug:
+                print(f"Checking for day in: '{day_text}'")
             
-            if 'колідено' in day_text or 'понеділок' in day_text or 'понеділ' in day_text:
-                current_day = "Monday"
-                current_day_index = 0
-                print(f"Found day: {current_day}")
-            elif 'вівторок' in day_text or 'кротвіво' in day_text:
-                current_day = "Tuesday"
-                current_day_index = 1
-                print(f"Found day: {current_day}")
-            elif 'середа' in day_text or 'адерес' in day_text:
-                current_day = "Wednesday"
-                current_day_index = 2
-                print(f"Found day: {current_day}")
-            elif 'четвер' in day_text or 'ревтеч' in day_text:
-                current_day = "Thursday"
-                current_day_index = 3
-                print(f"Found day: {current_day}")
-            elif 'п\'ятниця' in day_text or 'пятниця' in day_text or 'яцинтяп' in day_text:
-                current_day = "Friday"
-                current_day_index = 4
-                print(f"Found day: {current_day}")
-        
-        time_info = ""
-        if len(row) > 1 and row[1]:
-            time_info = str(row[1])
-            rows_without_time = 0
-        else:
-            rows_without_time += 1
-            if rows_without_time > 5 and current_day_index < len(days_order) - 1:
-                current_day_index += 1
-                current_day = days_order[current_day_index]
-                rows_without_time = 0
-                print(f"Auto-progressed to day: {current_day}")
-        
-        time_matches = re.findall(r'(\d{3,4})\s*-\s*(\d{3,4})', time_info)
-        
-        if time_matches:
-            for start_raw, end_raw in time_matches:
-                start_time = format_time(start_raw)
-                end_time = format_time(end_raw)
+            # Handle vertical text - reverse the string to get correct order
+            reversed_day = day_text[::-1]
+            if debug:
+                print(f"Reversed day text: '{reversed_day}'")
                 
-                for i, col_idx in enumerate(group_columns):
-                    if col_idx < len(row) and row[col_idx]:
-                        group = groups[i]
-                        subject_text = extract_subject_from_cell(row[col_idx])
-                        if subject_text:
-                            week_type, cleaned_subject = extract_week_info(subject_text)
-                            
-                            schedule.append({
-                                'day': current_day,
-                                'start_time': start_time,
-                                'end_time': end_time,
-                                'group': group,
-                                'subject': cleaned_subject,
-                                'week_type': week_type,
-                                'original_text': subject_text
-                            })
-                            print(f"Found: {current_day} {start_time}-{end_time} {group}: {cleaned_subject} ({week_type})")
-        else:
-            for i, col_idx in enumerate(group_columns):
+            # Check for standard day names in both normal and reversed form
+            day_patterns = {
+                'понеділок': 'Monday',
+                'поне': 'Monday',  # partial match
+                'вівторок': 'Tuesday', 
+                'вівт': 'Tuesday',  # partial match
+                'середа': 'Wednesday',
+                'сере': 'Wednesday',  # partial match
+                'четвер': 'Thursday',
+                'четв': 'Thursday',  # partial match
+                'п\'ятниця': 'Friday',
+                'пятн': 'Friday',  # partial match
+                'субота': 'Saturday',
+                'субо': 'Saturday'  # partial match
+            }
+            
+            # Check both original and reversed text
+            for pattern, en_day in day_patterns.items():
+                if pattern in day_text or pattern in reversed_day:
+                    current_day = en_day
+                    if debug:
+                        print(f"Found day: {current_day} (matched '{pattern}')")
+                    break
+            
+            # Special hardcoded mappings for your specific vertical format
+            day_mappings = {
+                'коліденоп': 'Monday',    # понеділок reversed
+                'коротвів': 'Tuesday',     # вівторок reversed  
+                'адерес': 'Wednesday',     # середа reversed
+                'ревтеч': 'Thursday',      # четвер reversed
+                'яцинтя\'п': 'Friday',    # п'ятниця reversed
+                'атобус': 'Saturday'       # субота reversed
+            }
+            
+            if day_text in day_mappings:
+                current_day = day_mappings[day_text]
+                if debug:
+                    print(f"Found day using mapping: {current_day}")
+        
+        time_found = False
+        for col_idx in range(min(2, len(row))):
+            if row[col_idx]:
+                cell_text = str(row[col_idx]).strip()
+                if debug:
+                    print(f"Checking time slot: '{cell_text}'")
+                if cell_text in TIME_SLOTS:
+                    current_time_slot = cell_text
+                    time_found = True
+                    if debug:
+                        print(f"Found time slot: {current_time_slot}")
+                    break
+                time_match = re.search(r'(\d{1,2})[:\s\-]?(\d{2})[\s\-]*[-–][\s\-]*(\d{1,2})[:\s\-]?(\d{2})', cell_text)
+                if time_match:
+                    start_time = f"{time_match.group(1).zfill(2)}:{time_match.group(2)}"
+                    end_time = f"{time_match.group(3).zfill(2)}:{time_match.group(4)}"
+                    time_found = True
+                    break
+        
+        if current_day and (current_time_slot or time_found):
+            for group_name, col_idx in group_columns.items():
                 if col_idx < len(row) and row[col_idx]:
-                    group = groups[i]
-                    subject_text = extract_subject_from_cell(row[col_idx])
-                    if subject_text:
-                        week_type, cleaned_subject = extract_week_info(subject_text)
-                        schedule.append({
-                            'day': current_day,
-                            'start_time': 'Unknown',
-                            'end_time': 'Unknown',
-                            'group': group,
-                            'subject': cleaned_subject,
-                            'week_type': week_type,
-                            'original_text': subject_text
-                        })
-                        print(f"Found (no time): {current_day} {group}: {cleaned_subject} ({week_type})")
-    
-    return schedule
-
-
-def format_time(time_str):
-    time_mappings = {
-        "830": "08:30", "950": "09:50",
-        "1010": "10:10", "1130": "11:30", 
-        "1150": "11:50", "1310": "13:10",
-        "1330": "13:30", "1450": "14:50",
-        "1505": "15:05", "1625": "16:25",
-        "1640": "16:40", "1800": "18:00",
-        "1810": "18:10", "1930": "19:30"
-    }
-    
-    if time_str in time_mappings:
-        return time_mappings[time_str]
-    
-    if len(time_str) == 4:
-        return f"{time_str[:2]}:{time_str[2:]}"
-    elif len(time_str) == 3:
-        return f"0{time_str[0]}:{time_str[1:]}"
-    
-    return time_str
-
-
-def extract_subject_from_cell(cell):
-    if not cell:
-        return None
-    
-    cell_text = str(cell).strip()
-    if len(cell_text) < 3:
-        return None
-    
-    cell_text = re.sub(r'\s+', ' ', cell_text)
-    
-    subject_patterns = [
-        r'([А-ЯІЇЄҐ][А-ЯІЇЄҐа-яіїєґ\s]{5,40})',
-        r'(ПРОГРАМУВАННЯ[^,]*)',
-        r'(МАТЕМАТИЧ[^,]*)',
-        r'(МЕТОДИ[^,]*)',
-        r'(ОБЧИСЛЮВАЛЬНА[^,]*)'
-    ]
-    
-    for pattern in subject_patterns:
-        match = re.search(pattern, cell_text)
-        if match:
-            return match.group(1).strip()
-    
-    return cell_text[:100]
-
-
-def parse_schedule_from_text(text):
-    schedule = []
-    
-    lines = text.split('\n')
-    
-    day_pattern = r'(Понеділок|Вівторок|Середа|Четвер|П\'ятниця|Субота|Неділя)'
-    time_pattern = r'(\d{3,4})\s*-?\s*(\d{3,4})'
-    
-    current_day = None
-    
-    for i, line in enumerate(lines):
-        line = line.strip()
-        if not line:
-            continue
-            
-        day_match = re.search(day_pattern, line)
-        if day_match:
-            current_day = day_match.group(1)
-            print(f"Found day: {current_day}")
-            continue
-        
-        time_match = re.search(time_pattern, line)
-        if time_match and current_day:
-            start_raw = time_match.group(1)
-            end_raw = time_match.group(2)
-            
-            start_time = format_time(start_raw)
-            end_time = format_time(end_raw)
-            
-            subject_part = re.sub(time_pattern, '', line).strip()
-            
-            if subject_part:
-                subject_part = re.sub(r'\s+', ' ', subject_part)
-                
-                week_type, cleaned_subject = extract_week_info(subject_part)
-                
-                if len(cleaned_subject) > 3:
+                    subject_text = str(row[col_idx]).strip()
+                    
+                    if len(subject_text) < 3:
+                        continue
+                    
+                    week_type, cleaned_subject = extract_week_info(subject_text)
+                    
+                    if current_time_slot and current_time_slot in TIME_SLOTS:
+                        start_time, end_time = TIME_SLOTS[current_time_slot]
+                    elif not time_found:
+                        continue
+                    
+                    room_match = re.search(r'(\d{2,3}[а-я]?)', cleaned_subject)
+                    room = room_match.group(1) if room_match else ""
+                    
                     schedule.append({
                         'day': current_day,
                         'start_time': start_time,
                         'end_time': end_time,
-                        'group': 'Unknown',
+                        'group': group_name,
                         'subject': cleaned_subject,
                         'week_type': week_type,
-                        'original_text': subject_part
+                        'room': room,
+                        'original_text': subject_text
                     })
-                    print(f"Added: {current_day} {start_time}-{end_time} {cleaned_subject} ({week_type})")
+                    
+                    if debug:
+                        print(f"Added: {current_day} {start_time}-{end_time} {group_name}: {cleaned_subject[:30]}... ({week_type})")
     
     return schedule
 
 
-def create_ics_from_schedule(schedule, user_config, output_file="schedule_enhanced.ics"):
+def extract_schedule_from_pdf(pdf_path, debug=False):
+    if debug:
+        print(f"Opening PDF: {pdf_path}")
+        if not Path(pdf_path).exists():
+            print(f"ERROR: PDF file does not exist at {pdf_path}")
+            return []
+    
+    all_schedules = []
+    
+    try:
+        with pdfplumber.open(pdf_path) as pdf:
+            for page_num, page in enumerate(pdf.pages, 1):
+                if debug:
+                    print(f"\nProcessing page {page_num}")
+                
+                tables = page.extract_tables()
+                if tables:
+                    for table_num, table in enumerate(tables):
+                        if debug:
+                            print(f"Processing table {table_num + 1} with {len(table)} rows")
+                        schedule_data = parse_improved_table(table, debug=debug)
+                        all_schedules.extend(schedule_data)
+                
+                text = page.extract_text()
+                if text and not tables:
+                    if debug:
+                        print("No tables found, trying text parsing")
+        
+        return all_schedules
+        
+    except Exception as e:
+        print(f"Error extracting from PDF: {e}")
+        return []
+
+
+def create_ics_from_schedule(schedule, user_config, output_file="schedule.ics"):
     cal = Calendar()
     
     semester_start = user_config['start_date']
@@ -359,69 +312,72 @@ def create_ics_from_schedule(schedule, user_config, output_file="schedule_enhanc
         is_numerator = is_numerator_week(week_start_date, semester_start, semester)
         
         week_type_name = 'numerator' if is_numerator else 'denominator'
-        print(f"Week {week + 1}: {week_start_date.strftime('%Y-%m-%d')} - {week_type_name}")
         
         weekday_mapping = {
             "Monday": 0, "Tuesday": 1, "Wednesday": 2, 
-            "Thursday": 3, "Friday": 4, "Saturday": 5, "Sunday": 6
+            "Thursday": 3, "Friday": 4, "Saturday": 5
         }
         
         for entry in schedule:
             if selected_group:
-                entry_group = entry['group'].replace(' ', '').replace('-', '').upper()
-                selected_group_clean = selected_group.replace(' ', '').replace('-', '').upper()
-                if selected_group_clean not in entry_group:
+                if selected_group.upper() not in entry['group'].upper():
                     continue
             
             entry_week_type = entry['week_type']
-            
-            if entry_week_type == 'all':
-                should_occur = True
-            elif entry_week_type == 'numerator':
-                should_occur = is_numerator
-            elif entry_week_type == 'denominator':
-                should_occur = not is_numerator
-            else:
-                should_occur = True
-            
-            if not should_occur:
+            if entry_week_type == 'numerator' and not is_numerator:
+                continue
+            elif entry_week_type == 'denominator' and is_numerator:
                 continue
             
-            if entry['start_time'] == 'Unknown' or entry['end_time'] == 'Unknown':
-                continue
+            if entry['day'] in weekday_mapping:
+                weekday = weekday_mapping[entry['day']]
+                event_date = week_start_date + timedelta(days=weekday)
                 
-            try:
-                start_hour, start_min = map(int, entry['start_time'].split(':'))
-                end_hour, end_min = map(int, entry['end_time'].split(':'))
-            except ValueError:
-                continue
-            
-            day_name = entry['day']
-            if day_name == 'Unknown' or day_name not in weekday_mapping:
-                continue
+                try:
+                    start_hour, start_min = map(int, entry['start_time'].split(':'))
+                    end_hour, end_min = map(int, entry['end_time'].split(':'))
+                except ValueError:
+                    continue
                 
-            weekday = weekday_mapping[day_name]
-            event_date = week_start_date + timedelta(days=weekday)
-            
-            event = Event()
-            event.name = f"{entry['group']}: {entry['subject']}"
-            event.begin = event_date.replace(hour=start_hour, minute=start_min)
-            event.end = event_date.replace(hour=end_hour, minute=end_min)
-            
-            event.description = (
-                f"Group: {entry['group']}\n"
-                f"Subject: {entry['subject']}\n"
-                f"Week type: {week_type_name}\n"
-                f"Original: {entry['original_text']}"
-            )
-            
-            cal.events.add(event)
+                event = Event()
+                event.name = f"{entry['group']}: {entry['subject'][:50]}"
+                event.begin = event_date.replace(hour=start_hour, minute=start_min)
+                event.end = event_date.replace(hour=end_hour, minute=end_min)
+                
+                if entry.get('room'):
+                    event.location = f"Room {entry['room']}"
+                
+                event.description = (
+                    f"Group: {entry['group']}\n"
+                    f"Subject: {entry['subject']}\n"
+                    f"Week type: {week_type_name}\n"
+                    f"Original: {entry['original_text']}"
+                )
+                
+                cal.events.add(event)
     
     with open(output_file, 'w', encoding='utf-8') as f:
         f.writelines(cal)
     
-    print(f"Enhanced ICS file created: {output_file}")
-    print(f"Generated events for {len(cal.events)} classes across 18 weeks")
+    print(f"\n✅ ICS file created: {output_file}")
+    print(f"📅 Generated {len(cal.events)} events across 18 weeks")
+    
+    return cal
+
+
+def download_pdf(url, local_path):
+    try:
+        print(f"Downloading from: {url}")
+        response = requests.get(url, timeout=30)
+        response.raise_for_status()
+        
+        with open(local_path, 'wb') as f:
+            f.write(response.content)
+        print(f"Downloaded to: {local_path}")
+        return True
+    except requests.exceptions.RequestException as e:
+        print(f"Failed to download: {e}")
+        return False
 
 
 def main():
@@ -430,58 +386,52 @@ def main():
     pdf_url = COURSE_SCHEDULES[config['course']]
     pdf_name = f"{config['course']}2025-1.pdf"
     
-    print(f"\nProcessing course: {config['course']}")
-    print(f"Semester: {config['semester']}")
-    print(f"Start date: {config['start_date'].strftime('%Y-%m-%d')}")
-    print(f"Selected group: {config['group'] or 'All groups'}")
+    print(f"\n📚 Processing course: {config['course']}")
+    print(f"📆 Semester: {config['semester']}")
+    print(f"📅 Start date: {config['start_date'].strftime('%Y-%m-%d')}")
+    print(f"👥 Selected group: {config['group'] or 'All groups'}")
     
-    schedules_dir = Path(__file__).resolve().parent.parent / "schedules"
-    schedules_dir.mkdir(parents=True, exist_ok=True)
+    schedules_dir = Path("schedules")
+    schedules_dir.mkdir(exist_ok=True)
     local_pdf_path = schedules_dir / pdf_name
     
     if not local_pdf_path.exists():
         if not download_pdf(pdf_url, local_pdf_path):
-            print("Failed to download PDF file")
+            print("Failed to download PDF")
             return
     else:
-        print(f"Using local file: {local_pdf_path}")
+        print(f"Using existing file: {local_pdf_path}")
     
-    print("Extracting data from PDF...")
-    text, table_schedule = extract_text_from_pdf(local_pdf_path)
-    
-    text_file = Path(f"extracted_text_{config['course']}.txt")
-    with open(text_file, 'w', encoding='utf-8') as f:
-        f.write(text)
-    print(f"Extracted text saved to: {text_file}")
-    
-    schedule = table_schedule if table_schedule else parse_schedule_from_text(text)
+    print("\nExtracting schedule from PDF...")
+    schedule = extract_schedule_from_pdf(local_pdf_path, debug=True)
     
     if not schedule:
-        print("No schedule data found")
-        print("Please check the extracted text and customize the parsing logic")
+        print(" No schedule data found")
+        print("This might be due to PDF structure. Try manual input or contact support.")
         return
     
-    print("Creating enhanced ICS file with week alternation...")
+    print(f"\n📊 Found {len(schedule)} schedule entries")
+    
+    json_file = schedules_dir / f"{config['course']}_schedule.json"
+    with open(json_file, 'w', encoding='utf-8') as f:
+        json.dump(schedule, f, ensure_ascii=False, indent=2)
+    print(f"💾 Saved schedule data to: {json_file}")
+    
+    print("\n📋 Sample schedule entries:")
+    for entry in schedule[:5]:
+        print(f"  {entry['day']} {entry['start_time']}-{entry['end_time']} "
+              f"{entry['group']}: {entry['subject'][:30]}... ({entry['week_type']})")
+    
     output_file = f"schedule_{config['course']}_{config['group'] or 'all'}.ics"
     create_ics_from_schedule(schedule, config, output_file)
     
-    print(f"\nFound {len(schedule)} unique schedule entries:")
-    for entry in schedule[:10]:
-        print(f"  {entry['day']} {entry['start_time']}-{entry['end_time']} "
-              f"{entry['group']}: {entry['subject']} ({entry['week_type']})")
-    
-    if len(schedule) > 10:
-        print(f"  ... and {len(schedule) - 10} more entries")
-    
-    print(f"\n✅ SUCCESS: ICS calendar file created: {output_file}")
-    print("📱 You can now import this file to your phone calendar!")
-    print("💡 The file contains all classes with proper week alternation (numerator/denominator)")
-    
-    if config['group']:
-        print(f"📋 Filtered for group: {config['group']}")
+    # Print summary info
+    if not config['group']:
+        print("3. Includes all groups - you can filter in your calendar app")
     else:
-        print("📋 Includes all groups - import and filter in your calendar app")
-
+        print(f"3. Filtered for group: {config['group']}")
+    
+    print(f"\nCalendar file is ready: {output_file}")
 
 if __name__ == "__main__":
     main()
